@@ -1,0 +1,20 @@
+{
+    "description":"result.json",
+    "data":[
+        {
+            "rank":30,
+            "nickname":"マーブル",
+            "point":403
+        },
+        {
+            "rank":31,
+            "nickname":"万年ニート",
+            "point":385
+        },
+        {
+            "rank":32,
+            "nickname":"ハンバーグ",
+            "point":383
+        }
+    ]
+}
