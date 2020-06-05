@@ -1,6 +1,7 @@
 {
     "description":"conf.json",
     "statecheck_url":"https://www.rendou-demo.com/game/json/state.json",
+    "timecheck_url":"https://s1.fujitv.co.jp/safe/cxm/sample00/exp/json/empty.json",
     "result_get_time":48,
     "result_disp_time":50.7
 }

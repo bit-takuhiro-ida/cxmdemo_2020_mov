@@ -53,7 +53,8 @@ const init = (conf) => {
     args.prop_name_state_change_datetime = "startDateMS";
     
     // サーバータイム取得用ファイル の URL (必須の引数)
-    args.timecheck_url = "./json/empty.json";
+    // args.timecheck_url = "./json/empty.json";
+    args.timecheck_url = conf.timecheck_url;
 
 
     // 準備状態になったときの処理
@@ -76,7 +77,19 @@ const init = (conf) => {
         // TODO　動画を再生
         console.log("event_func_start_just ----")
         console.log(_df.format(new Date()))
-        document.getElementById('mov').play();
+        console.log("--- 動画を再生します ---")
+        try{
+            document.getElementById('mov').play().catch(function(e) {
+                //エラー時処理
+                console.log("再生失敗！")
+                console.log(e)
+                $("#caution").removeClass("hide");
+            });
+        }catch(e){
+            console.log("失敗！")
+            console.log(e)
+            $("#caution").removeClass("hide");
+        }
     };
     
     // 予定時間をすでに過ぎていたときの処理
@@ -84,6 +97,8 @@ const init = (conf) => {
         // 予定時間をすでに過ぎていた
         console.log("event_func_start_after ----")
         console.log(_df.format(new Date()))
+        
+        $("#caution").removeClass("hide");
         // effectStart();
     };
 
@@ -146,7 +161,7 @@ const addLinstner = (conf) => {
         },10);
     }, false);
 
-    $("#cover .btn").on("click", function(e){
+    $("#cover").on("click", function(e){
         setTimeout(()=>{
             $("#cover").addClass("hide");
         },200);
